@@ -91,7 +91,7 @@ def authorized():
         result = _build_msal_app(cache=cache).acquire_token_by_authorization_code(
             request.args['code'],
             scopes=Config.SCOPE,
-            redirect_uri=redirect_uri="https://udacitycms-hsggc0fbb9cpfyav.canadaeast-01.azurewebsites.net/getAToken"
+            redirect_uri="https://udacitycms-hsggc0fbb9cpfyav.canadaeast-01.azurewebsites.net/getAToken"
         )
         if "error" in result:
             return render_template("auth_error.html", result=result)
