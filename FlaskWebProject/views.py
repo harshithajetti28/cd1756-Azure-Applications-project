@@ -138,5 +138,5 @@ def _build_auth_url(authority=None, scopes=None, state=None):
     return _build_msal_app(authority=authority).get_authorization_request_url(
         scopes or [],
         state=state,
-        redirect_uri=url_for("authorized", _external=True)
+        redirect_uri="https://udacitycms-hsggc0fbb9cpfyav.canadaeast-01.azurewebsites.net/getAToken"
     )
