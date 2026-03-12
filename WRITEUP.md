@@ -1,12 +1,51 @@
-# Write-up Template
+# Deployment Analysis: VM vs App Service
 
-### Analyze, choose, and justify the appropriate resource option for deploying the app.
+## Option 1: Virtual Machine
 
-*For **both** a VM or App Service solution for the CMS app:*
-- *Analyze costs, scalability, availability, and workflow*
-- *Choose the appropriate solution (VM or App Service) for deploying the app*
-- *Justify your choice*
+### Cost
+Using a Virtual Machine requires paying for the VM instance, storage, and networking. 
+Even when the application is not heavily used, the VM continues running and incurs cost.
 
-### Assess app changes that would change your decision.
+### Scalability
+Scaling with VMs requires manually creating additional VMs or configuring load balancers. 
+This process is more complex and requires manual management.
 
-*Detail how the app and any other needs would have to change for you to change your decision in the last section.* 
+### Availability
+VMs require manual configuration for high availability. 
+Developers must manage updates, patches, and monitoring themselves.
+
+### Workflow
+Deployment to a VM involves installing dependencies, configuring the server, and managing updates manually. 
+This increases operational overhead.
+
+---
+
+## Option 2: Azure App Service
+
+### Cost
+Azure App Service offers a free tier and flexible pricing plans. 
+For small applications or learning projects, the free tier is sufficient.
+
+### Scalability
+App Service supports automatic scaling. 
+It can easily scale up or down based on application demand.
+
+### Availability
+Azure automatically manages infrastructure, updates, and uptime. 
+This improves reliability without additional configuration.
+
+### Workflow
+Deployment is simple and integrates directly with GitHub. 
+Whenever code is pushed to the repository, Azure automatically deploys the application.
+
+---
+
+## Final Decision
+
+For this project, Azure App Service was chosen to deploy the Flask web application.
+
+App Service provides easier deployment, built-in scalability, and lower operational overhead compared to managing a Virtual Machine. 
+Since this project focuses on deploying and managing a cloud application efficiently, App Service is the most suitable solution.
+## I Would Choose a Virtual Machine when:
+
+If the application required full control over the operating system, custom networking configurations, or specialized software that cannot run within Azure App Service, a Virtual Machine would be a better choice. A VM would also be preferable for applications that require custom background services, advanced system-level configurations, or specific hardware dependencies. In such cases, the additional control provided by a Virtual Machine would outweigh the simplicity and automation benefits of Azure App Service.
